@@ -7,7 +7,7 @@ const app = express();
 app.set('views', './templates');
 app.set('view engine', 'pug');
 
-app.use(express.static('static'));
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

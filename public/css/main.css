@@ -1,0 +1,22 @@
+.geks-border-radius {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.geks-header {
+
+}
+.geks-header-title {
+    margin: 0;
+    line-height: 100px;
+}
+
+.geks-logo {
+    float: left;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.geks-header-menu {
+    margin: 0;
+}
