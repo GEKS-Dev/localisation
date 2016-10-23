@@ -22,3 +22,15 @@
     margin: 0;
     margin-top: 1em;
 }
+
+.geks-nav-icon {
+    margin-right: 0.5em;
+}
+
+#geks-nav-list {
+    float: left;
+}
+
+.geks-login-button {
+    float: right;
+}

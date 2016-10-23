@@ -1,10 +1,27 @@
 .row.geks-header-menu.geks-border-radius
-    ul.nav.nav-pills
-        li.active
-            a(href='/translate') Перевод
+    ul.nav.nav-pills#geks-nav-list
         li
-            a(href='/inspection') Инспекция
+            a(href='/')
+                span.glyphicon.glyphicon-home.geks-nav-icon
+                span Главная страница
         li
-            a(href='/upload') Загрузить
+            a(href='/translate')
+                span.glyphicon.glyphicon-edit.geks-nav-icon
+                span Перевод
         li
-            a(href='/download') Скачать
+            a(href='/inspection')
+                span.glyphicon.glyphicon-ok-sign.geks-nav-icon
+                span Инспекция
+        li
+            a(href='/upload')
+                span.glyphicon.glyphicon-cloud-upload.geks-nav-icon
+                span Загрузить
+        li
+            a(href='/download')
+                span.glyphicon.glyphicon-cloud-download.geks-nav-icon
+                span Скачать
+    ul.nav.nav-pills.geks-login-button
+        li
+            a(href='/login')
+                span.glyphicon.glyphicon-lock.geks-nav-icon
+                span Войти
