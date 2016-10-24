@@ -2,6 +2,10 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const session = require('cookie-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 app.set('views', './templates');
@@ -17,7 +21,7 @@ app.get('/translate', require('./controllers/translate').get);
 app.get('/inspection', require('./controllers/inspection').get);
 app.get('/upload', require('./controllers/upload').get);
 app.get('/download', require('./controllers/download').get);
-app.get('*', function (req, res) {
+app.use('*', function (req, res) {
     res.send("404 - This page not found!!!");
 });
 

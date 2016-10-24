@@ -34,3 +34,8 @@
 .geks-login-button {
     float: right;
 }
+
+.geks-login-form {
+    padding-right: 30%;
+    padding-top: 5%;
+}

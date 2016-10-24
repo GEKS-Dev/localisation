@@ -22,8 +22,12 @@
   },
   "homepage": "https://github.com/GEKS-Dev/localisation#readme",
   "dependencies": {
+    "body-parser": "latest",
+    "cookie-session": "^2.0.0-alpha.1",
     "express": "^4.14.0",
-    "pug": "^2.0.0-beta6",
-    "body-parser": "latest"
+    "express-validator": "^2.20.10",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-beta6"
   }
 }
