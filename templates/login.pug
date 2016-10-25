@@ -1,16 +1,16 @@
 extends ./base.pug
 block content
     section.row
-        form.form-horizontal.geks-login-form(method='POST')
+        form.form-horizontal.geks-login-form(action='/login' method='POST')
             .form-group
                 label.col-sm-2.control-label(for='geks-input-email') Электропочта
                 .col-sm-10
                     input#geks-input-email.form-control(type='email', name='inputEmail' placeholder='Введите свою почту')
             .form-group
-                label.col-sm-2.control-label(for='inputPassword3') Пароль
+                label.col-sm-2.control-label(for='geks-input-password') Пароль
                 .col-sm-10
                     input#geks-input-password.form-control(type='password', name='inputPassword' placeholder='Введите пароль')
             .form-group
                 .col-sm-offset-2.col-sm-10
-                    a.btn.btn-default(href='/login') Войти
+                    button.btn.btn-default(type='submit') Войти
 
