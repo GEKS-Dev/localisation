@@ -1,0 +1,24 @@
+extends ./base.pug
+block content
+    section.row
+        form.form-horizontal.geks-login-form(action='/login' method='POST')
+            .form-group
+                label.col-sm-2.control-label(for='geks-input-email-register') Электропочта
+                .col-sm-10
+                    input#geks-input-email-register.form-control(type='email', name='inputEmail' placeholder='Введите свою почту')
+            .form-group
+                label.col-sm-2.control-label(for='geks-input-name-register') Электропочта
+                .col-sm-10
+                    input#geks-input-name-register.form-control(type='text', name='inputName' placeholder='Введите свой ник')
+            .form-group
+                label.col-sm-2.control-label(for='geks-input-password-register') Пароль
+                .col-sm-10
+                    input#geks-input-password-register.form-control(type='password', name='inputPassword' placeholder='Введите пароль')
+            .form-group
+                label.col-sm-2.control-label(for='geks-input-repassword-register') Повторите пароль
+                .col-sm-10
+                    input#geks-input-repassword-register.form-control(type='password', name='inputRePassword' placeholder='Повторите пароль')
+            .form-group
+                .col-sm-offset-2.col-sm-10
+                    button.btn.btn-default(type='submit') Войти
+

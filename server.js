@@ -34,6 +34,8 @@ app.use(expressValidator({
 }));
 
 app.get('/', require('./controllers/home').get);
+app.get('/register', require('./controllers/register').get);
+app.post('/register', require('./controllers/register').post);
 app.get('/login', require('./controllers/login').get);
 app.post('/login', require('./controllers/login').post);
 app.get('/translate', require('./controllers/translate').get);
