@@ -23,9 +23,12 @@
   "homepage": "https://github.com/GEKS-Dev/localisation#readme",
   "dependencies": {
     "body-parser": "latest",
+    "connect-flash": "^0.1.1",
     "cookie-session": "^2.0.0-alpha.1",
     "express": "^4.14.0",
     "express-validator": "^2.20.10",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.5",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-beta6"

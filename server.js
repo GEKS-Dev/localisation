@@ -3,9 +3,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
+const flash = require('connect-flash');
 const session = require('cookie-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const mongo = require('mongodb');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/t-servicedb');
+const db = mongoose.connection;
+
 
 const app = express();
 app.set('views', './templates');
