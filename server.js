@@ -2,6 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('cookie-session');
@@ -21,6 +22,14 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+
+app.use(session({
+    secret: 'kqjuhdqwiudqweidgqwedilygebdd978263e21978jkdcf78 465 huUOIjkliudyweiudhqjwdlijuw3',
+    saveUninitialized: true,
+    resave: true
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(expressValidator({
@@ -39,6 +48,13 @@ app.use(expressValidator({
         };
     }
 }));
+
+app.use(flash());
+app.use(function (req, res, next) {
+    res.locals.success_msg = req.flash('saccess_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+});
 
 app.get('/', require('./controllers/home').get);
 app.get('/register', require('./controllers/register').get);
