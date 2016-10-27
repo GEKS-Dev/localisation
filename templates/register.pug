@@ -3,7 +3,9 @@ block content
     section.row.geks-register-errors
         if errors
             each err in errors
-                .alert.alert-danger #{err.msg}
+                .alert.alert-danger
+                    span.glyphicon.glyphicon-exclamation-sign
+                    span  #{err.msg}
     section.row
         form.form-horizontal.geks-login-form(action='/register' method='POST')
             .form-group
