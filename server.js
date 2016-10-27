@@ -54,6 +54,7 @@ app.use(function (req, res, next) {
     res.locals.success_msg = req.flash('saccess_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    next();
 });
 
 app.get('/', require('./controllers/home').get);
