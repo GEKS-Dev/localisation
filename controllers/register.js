@@ -1,10 +1,12 @@
 'use strict';
+const User = require('../models/user');
+
 module.exports = {
     get: function (req, res) {
         res.render('../templates/register');
     },
     post: function (req, res) {
-        let name = req.body.inputName;
+        let username = req.body.inputName;
         let email = req.body.inputEmail;
         let password = req.body.inputPassword;
         let password2 = req.body.inputRePassword;
@@ -23,7 +25,21 @@ module.exports = {
                 errors: errors
             });
         } else {
-            console.log('Passed');
+            let newUser = new User({
+                username: username,
+                email: email,
+                password: password,
+                translator: false,
+                inspector: false,
+                admin: false
+            });
+            User.createUser(newUser, function(err, user) {
+                if (err) throw err;
+                console.log(user);
+            });
+
+            //req.flash('success_msg', 'Вы зарегистрировались и теперь можете войти');
+            res.redirect('/login');
         }
     }
 };
