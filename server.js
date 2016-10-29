@@ -11,6 +11,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 
+const User = require('./models/user');
+
 mongoose.connect('mongodb://localhost/t-servicedb');
 const db = mongoose.connection;
 
@@ -57,11 +59,41 @@ app.use(function (req, res, next) {
     next();
 });
 
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        User.getUserByUsername(username, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Неправильное имя пользователя' });
+            }
+            User.comparePassword(password, user.password, function(err, isMatch){
+                if (err) throw err;
+                if (isMatch) {
+                    return done(null, user);
+                } else {
+                    return done(null, false, { message: 'Неправильный пароль' });
+                }
+            });
+        });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.username);
+});
+
+passport.deserializeUser(function(user, done) {
+    User.getUserById(user, function(err, user) {
+        done(err, user);
+    });
+});
+
 app.get('/', require('./controllers/home').get);
 app.get('/register', require('./controllers/register').get);
 app.post('/register', require('./controllers/register').post);
 app.get('/login', require('./controllers/login').get);
-app.post('/login', require('./controllers/login').post);
+app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
+                    require('./controllers/login').post);
 app.get('/translate', require('./controllers/translate').get);
 app.get('/inspection', require('./controllers/inspection').get);
 app.get('/upload', require('./controllers/upload').get);
