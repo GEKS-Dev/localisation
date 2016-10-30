@@ -98,6 +98,7 @@ app.get('/translate', require('./controllers/translate').get);
 app.get('/inspection', require('./controllers/inspection').get);
 app.get('/upload', require('./controllers/upload').get);
 app.get('/download', require('./controllers/download').get);
+app.get('/admin', require('./controllers/admin').get);
 app.use('*', function (req, res) {
     res.send("404 - This page not found!!!");
 });
