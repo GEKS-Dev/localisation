@@ -51,3 +51,7 @@ module.exports.comparePassword = function (candidatePassword, hash, callback) {
 module.exports.getUserById = function (user, callback) {
     User.findById(user._id, callback);
 };
+
+module.exports.getAll = function (callback) {
+    User.find(callback);
+};
