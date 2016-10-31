@@ -1,0 +1,17 @@
+ul.nav.nav-tabs.geks-content-margin
+    li.active
+        a(data-toggle='tab', href='#users') Пользователи
+    li
+        a(data-toggle='tab', href='#panel2') Загрузка
+    li
+        a(data-toggle='tab', href='#panel2') Выгрузка
+.tab-content.geks-content-padding
+    #users.tab-pane.fade.in.active
+        h3 Пользователи
+        include users-tab-admin
+    #download.tab-pane.fade
+        h3 Загрузка
+        include upload
+    #upload.tab-pane.fade
+        h3 Выгрузка
+        include download

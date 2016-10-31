@@ -1,0 +1,17 @@
+table.table.table-bordered
+    thead
+        tr
+            th Имя пользователя
+            th Электропочта
+            th Переводчик
+            th Инспектор
+            th Администратор
+    tbody
+        if users
+            each user in users
+                tr
+                    th #{user.username}
+                    th #{user.email}
+                    td #{user.translator}
+                    td #{user.inspector}
+                    td #{user.admin}
