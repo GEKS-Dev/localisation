@@ -12,6 +12,9 @@ table.table.table-bordered
                 tr
                     th #{user.username}
                     th #{user.email}
-                    td #{user.translator}
-                    td #{user.inspector}
-                    td #{user.admin}
+                    td
+                        input(type='checkbox' checked=(user.translator) onchange='onChangeAdminCheck("translator", "' + (user.username) + '");')
+                    td
+                        input(type='checkbox' checked=(user.inspector) onchange='onChangeAdminCheck("inspector", "' + (user.username) + '");')
+                    td
+                        input(type='checkbox' checked=(user.admin) onchange='onChangeAdminCheck("admin", "' + (user.username) + '");')
